@@ -221,23 +221,17 @@ export default {
             <table class="table table-striped table-hover text-center">
                 <thead>
                     <tr>
-                        <th scope="col"><h1><i class="fa-brands fa-x-twitter"></i></h1></th>
-                        <th scope="col"><h1><i class="fa-brands fa-opera"></i></h1></th>
-                        <th scope="col"><h1><i class="fa-brands fa-opera"></i></h1></th>
-                        <th scope="col"><h1><i class="fa-solid fa-trophy"></i></h1></th>
+                        <th scope="col" class=""><span class="fs-3"><i class="fa-solid fa-user"></i></span><span class="fs-6"><i class="fa-brands fa-x-twitter"></i></span></th>
+                        <th scope="col"><h3 class="mb-0"><i class="fa-brands fa-x"></i></h3></th>
+                        <th scope="col" class=""><span class="fs-3"><i class="fa-solid fa-user"></i></span><span class="fs-6"><i class="fa-brands fa-opera"></i></span></th>
+                        <th scope="col"><h1 class="mb-0"><i class="fa-solid fa-trophy"></i></h1></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
                         <td>Mark</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
                         <td>Mark</td>
                     </tr>
                 </tbody>
