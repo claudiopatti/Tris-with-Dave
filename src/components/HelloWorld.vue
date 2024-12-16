@@ -5,6 +5,8 @@
                 message: 'ciao',
                 countClick: 0,
                 wins: false,
+                iconX: '<h1><i class="fa-brands fa-x-twitter"></i></h1>',
+                iconO: '<h1><i class="fa-brands fa-opera"></i></h1>'
             }   
         },
         methods: {
@@ -13,11 +15,11 @@
                 if (card.innerHTML == "" && this.wins == false) {
                     if (this.countClick % 2 == 0 ) {
                         console.log(this.countClick)
-                        card.innerHTML = "<h1>X</h1>"
+                        card.innerHTML = this.iconX
                     }
                     else if (!(this.countClick % 2 == 0 ) ) {
                         console.log(this.countClick)
-                        card.innerHTML = "<h1>O</h1>"
+                        card.innerHTML = this.iconO
                     }
                     this.countClick++;
                 }
@@ -26,7 +28,7 @@
 
             checkWin() {
                 // let cards = document.getElementById(`${x}`)
-                if ((document.getElementById(0).innerHTML == "<h1>X</h1>") && (document.getElementById(1).innerHTML == "<h1>X</h1>") && (document.getElementById(2).innerHTML == "<h1>X</h1>") ) {
+                if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(1).innerHTML === this.iconX) && (document.getElementById(2).innerHTML === this.iconX) ) {
                     console.log('hai vinto: X');
                     this.wins = true;
                     alert('Hai vinto figlio di puttana X');
@@ -34,7 +36,7 @@
                     // this.showWins()
 
                 }
-                else if ((document.getElementById(3).innerHTML == "<h1>X</h1>") && (document.getElementById(4).innerHTML == "<h1>X</h1>") && (document.getElementById(5).innerHTML == "<h1>X</h1>")) {
+                else if ((document.getElementById(3).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(5).innerHTML === this.iconX)) {
                     console.log('hai vinto: X')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana X');
@@ -42,7 +44,7 @@
 
                     
                 }
-                else if ((document.getElementById(6).innerHTML == "<h1>X</h1>") && (document.getElementById(7).innerHTML == "<h1>X</h1>") && (document.getElementById(8).innerHTML == "<h1>X</h1>")) {
+                else if ((document.getElementById(6).innerHTML === this.iconX) && (document.getElementById(7).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
                     console.log('hai vinto: X')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana X');
@@ -50,7 +52,7 @@
 
                     
                 }
-                else if ((document.getElementById(0).innerHTML == "<h1>X</h1>") && (document.getElementById(4).innerHTML == "<h1>X</h1>") && (document.getElementById(8).innerHTML == "<h1>X</h1>")) {
+                else if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
                     console.log('hai vinto: X')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana X');
@@ -58,7 +60,7 @@
 
                     
                 }
-                else if ((document.getElementById(2).innerHTML == "<h1>X</h1>") && (document.getElementById(4).innerHTML == "<h1>X</h1>") && (document.getElementById(6).innerHTML == "<h1>X</h1>")) {
+                else if ((document.getElementById(2).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(6).innerHTML === this.iconX)) {
                     console.log('hai vinto: X')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana X');
@@ -66,7 +68,7 @@
 
                     
                 }
-                else if ((document.getElementById(0).innerHTML == "<h1>X</h1>") && (document.getElementById(3).innerHTML == "<h1>X</h1>") && (document.getElementById(6).innerHTML == "<h1>X</h1>")) {
+                else if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(3).innerHTML === this.iconX) && (document.getElementById(6).innerHTML === this.iconX)) {
                     console.log('hai vinto: X')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana X');
@@ -74,7 +76,7 @@
 
                     
                 }
-                else if ((document.getElementById(1).innerHTML == "<h1>X</h1>") && (document.getElementById(4).innerHTML == "<h1>X</h1>") && (document.getElementById(7).innerHTML == "<h1>X</h1>")) {
+                else if ((document.getElementById(1).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(7).innerHTML === this.iconX)) {
                     console.log('hai vinto: X')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana X');
@@ -82,7 +84,7 @@
 
                     
                 }
-                else if ((document.getElementById(2).innerHTML == "<h1>X</h1>") && (document.getElementById(5).innerHTML == "<h1>X</h1>") && (document.getElementById(8).innerHTML == "<h1>X</h1>")) {
+                else if ((document.getElementById(2).innerHTML === this.iconX) && (document.getElementById(5).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
                     console.log('hai vinto: X')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana X');
@@ -93,22 +95,14 @@
 
 
                 //**********************************************+ */
-                if ((document.getElementById(0).innerHTML == "<h1>O</h1>") && (document.getElementById(1).innerHTML == "<h1>O</h1>") && (document.getElementById(2).innerHTML == "<h1>O</h1>") ) {
+                if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(1).innerHTML === this.iconO) && (document.getElementById(2).innerHTML === this.iconO) ) {
                     console.log('hai vinto: O')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana O');
 
 
                 }
-                else if ((document.getElementById(3).innerHTML == "<h1>O</h1>") && (document.getElementById(4).innerHTML == "<h1>O</h1>") && (document.getElementById(5).innerHTML == "<h1>O</h1>")) {
-                    console.log('hai vinto: O')
-                    this.wins = true;
-                    alert('Hai vinto figlio di puttana O');
-
-
-                    
-                }
-                else if ((document.getElementById(6).innerHTML == "<h1>O</h1>") && (document.getElementById(7).innerHTML == "<h1>O</h1>") && (document.getElementById(8).innerHTML == "<h1>O</h1>")) {
+                else if ((document.getElementById(3).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(5).innerHTML === this.iconO)) {
                     console.log('hai vinto: O')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana O');
@@ -116,7 +110,7 @@
 
                     
                 }
-                else if ((document.getElementById(0).innerHTML == "<h1>O</h1>") && (document.getElementById(4).innerHTML == "<h1>O</h1>") && (document.getElementById(8).innerHTML == "<h1>O</h1>")) {
+                else if ((document.getElementById(6).innerHTML === this.iconO) && (document.getElementById(7).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
                     console.log('hai vinto: O')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana O');
@@ -124,7 +118,7 @@
 
                     
                 }
-                else if ((document.getElementById(2).innerHTML == "<h1>O</h1>") && (document.getElementById(4).innerHTML == "<h1>O</h1>") && (document.getElementById(6).innerHTML == "<h1>O</h1>")) {
+                else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
                     console.log('hai vinto: O')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana O');
@@ -132,7 +126,7 @@
 
                     
                 }
-                else if ((document.getElementById(0).innerHTML == "<h1>O</h1>") && (document.getElementById(3).innerHTML == "<h1>O</h1>") && (document.getElementById(6).innerHTML == "<h1>O</h1>")) {
+                else if ((document.getElementById(2).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(6).innerHTML === this.iconO)) {
                     console.log('hai vinto: O')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana O');
@@ -140,7 +134,7 @@
 
                     
                 }
-                else if ((document.getElementById(1).innerHTML == "<h1>O</h1>") && (document.getElementById(4).innerHTML == "<h1>O</h1>") && (document.getElementById(7).innerHTML == "<h1>O</h1>")) {
+                else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(3).innerHTML === this.iconO) && (document.getElementById(6).innerHTML === this.iconO)) {
                     console.log('hai vinto: O')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana O');
@@ -148,7 +142,15 @@
 
                     
                 }
-                else if ((document.getElementById(2).innerHTML == "<h1>O</h1>") && (document.getElementById(5).innerHTML == "<h1>O</h1>") && (document.getElementById(8).innerHTML == "<h1>O</h1>")) {
+                else if ((document.getElementById(1).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(7).innerHTML === this.iconO)) {
+                    console.log('hai vinto: O')
+                    this.wins = true;
+                    alert('Hai vinto figlio di puttana O');
+
+
+                    
+                }
+                else if ((document.getElementById(2).innerHTML === this.iconO) && (document.getElementById(5).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
                     console.log('hai vinto: O')
                     this.wins = true;
                     alert('Hai vinto figlio di puttana O');
@@ -201,14 +203,14 @@
 <template>
     <div id="container-grande" class="container h-100 d-flex justify-content-center align-items-center">
     
-        <div class="griglia d-flex justify-content-center align-items-center flex-wrap">
+        <div class="griglia d-flex justify-content-center align-items-center flex-wrap gap-2 pt-3">
             <div v-for="(items, index) in 9" :key="index" :id="index" @click=" press(index), checkWin(index)" class="col-4 p-0 d-flex justify-content-center align-items-center ">
                 
             </div>
             
             <div class="mt-5">
                 <button @click="resetAllPage()" class="btn btn-primary">
-                    Resetta Sto CAZZOOOOO
+                    Resetta
                 </button>
             </div>
     
@@ -221,9 +223,10 @@
 .griglia {
     width: 600px;
     height: 600px;
+    background-color: #000000cf;
     .col-4 {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         background-color: green;
         border: 1px solid black;
     }
