@@ -2,19 +2,22 @@
 export default {
     data() {
         return {
-            message: 'ciao',
             countClick: 0,
-            wins: false,
+            wins: '',
             iconX: '<h1><i class="fa-brands fa-x-twitter text-light"></i></h1>',
             iconO: '<h1><i class="fa-brands fa-opera text-light"></i></h1>',
             counterX: 0,
             counterO: 0,
+            tie: false,
+            tieCount: 0,
+            results: [],
+            reverseResults: [],
         }
     },
     methods: {
         press(x) {
             let card = document.getElementById(`${x}`)
-            if (card.innerHTML == "" && this.wins == false) {
+            if (card.innerHTML == "" && this.wins == '') {
                 if (this.countClick % 2 == 0) {
                     console.log(this.countClick)
                     card.innerHTML = this.iconX
@@ -32,7 +35,8 @@ export default {
             // let cards = document.getElementById(`${x}`)
             if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(1).innerHTML === this.iconX) && (document.getElementById(2).innerHTML === this.iconX)) {
                 console.log('hai vinto: X');
-                this.wins = true;
+                this.wins = 'x'
+                this.counterX++;
                 alert('Hai vinto figlio di puttana X');
 
                 // this.showWins()
@@ -40,7 +44,8 @@ export default {
             }
             else if ((document.getElementById(3).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(5).innerHTML === this.iconX)) {
                 console.log('hai vinto: X')
-                this.wins = true;
+                this.wins = 'x';
+                this.counterX++;
                 alert('Hai vinto figlio di puttana X');
 
 
@@ -48,7 +53,8 @@ export default {
             }
             else if ((document.getElementById(6).innerHTML === this.iconX) && (document.getElementById(7).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
                 console.log('hai vinto: X')
-                this.wins = true;
+                this.wins = 'x';
+                this.counterX++;
                 alert('Hai vinto figlio di puttana X');
 
 
@@ -56,7 +62,8 @@ export default {
             }
             else if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
                 console.log('hai vinto: X')
-                this.wins = true;
+                this.wins = 'x';
+                this.counterX++;
                 alert('Hai vinto figlio di puttana X');
 
 
@@ -64,7 +71,8 @@ export default {
             }
             else if ((document.getElementById(2).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(6).innerHTML === this.iconX)) {
                 console.log('hai vinto: X')
-                this.wins = true;
+                this.wins = 'x';
+                this.counterX++;
                 alert('Hai vinto figlio di puttana X');
 
 
@@ -72,7 +80,8 @@ export default {
             }
             else if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(3).innerHTML === this.iconX) && (document.getElementById(6).innerHTML === this.iconX)) {
                 console.log('hai vinto: X')
-                this.wins = true;
+                this.wins = 'x';
+                this.counterX++;
                 alert('Hai vinto figlio di puttana X');
 
 
@@ -80,7 +89,8 @@ export default {
             }
             else if ((document.getElementById(1).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(7).innerHTML === this.iconX)) {
                 console.log('hai vinto: X')
-                this.wins = true;
+                this.wins = 'x';
+                this.counterX++;
                 alert('Hai vinto figlio di puttana X');
 
 
@@ -88,7 +98,8 @@ export default {
             }
             else if ((document.getElementById(2).innerHTML === this.iconX) && (document.getElementById(5).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
                 console.log('hai vinto: X')
-                this.wins = true;
+                this.wins = 'x';
+                this.counterX++;
                 alert('Hai vinto figlio di puttana X');
 
 
@@ -97,16 +108,18 @@ export default {
 
 
             //**********************************************+ */
-            if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(1).innerHTML === this.iconO) && (document.getElementById(2).innerHTML === this.iconO)) {
+            else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(1).innerHTML === this.iconO) && (document.getElementById(2).innerHTML === this.iconO)) {
                 console.log('hai vinto: O')
-                this.wins = true;
+                this.wins = 'o';
+                this.counterO++;
                 alert('Hai vinto figlio di puttana O');
 
 
             }
             else if ((document.getElementById(3).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(5).innerHTML === this.iconO)) {
                 console.log('hai vinto: O')
-                this.wins = true;
+                this.wins = 'o';
+                this.counterO++;
                 alert('Hai vinto figlio di puttana O');
 
 
@@ -114,7 +127,8 @@ export default {
             }
             else if ((document.getElementById(6).innerHTML === this.iconO) && (document.getElementById(7).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
                 console.log('hai vinto: O')
-                this.wins = true;
+                this.wins = 'o';
+                this.counterO++;
                 alert('Hai vinto figlio di puttana O');
 
 
@@ -122,7 +136,8 @@ export default {
             }
             else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
                 console.log('hai vinto: O')
-                this.wins = true;
+                this.wins = 'o';
+                this.counterO++;
                 alert('Hai vinto figlio di puttana O');
 
 
@@ -130,7 +145,8 @@ export default {
             }
             else if ((document.getElementById(2).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(6).innerHTML === this.iconO)) {
                 console.log('hai vinto: O')
-                this.wins = true;
+                this.wins = 'o';
+                this.counterO++;
                 alert('Hai vinto figlio di puttana O');
 
 
@@ -138,7 +154,8 @@ export default {
             }
             else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(3).innerHTML === this.iconO) && (document.getElementById(6).innerHTML === this.iconO)) {
                 console.log('hai vinto: O')
-                this.wins = true;
+                this.wins = 'o';
+                this.counterO++;
                 alert('Hai vinto figlio di puttana O');
 
 
@@ -146,7 +163,8 @@ export default {
             }
             else if ((document.getElementById(1).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(7).innerHTML === this.iconO)) {
                 console.log('hai vinto: O')
-                this.wins = true;
+                this.wins = 'o';
+                this.counterO++;
                 alert('Hai vinto figlio di puttana O');
 
 
@@ -154,25 +172,41 @@ export default {
             }
             else if ((document.getElementById(2).innerHTML === this.iconO) && (document.getElementById(5).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
                 console.log('hai vinto: O')
-                this.wins = true;
+                this.wins = 'o';
+                this.counterO++;
                 alert('Hai vinto figlio di puttana O');
-
-
-
-
             }
+            else if ((document.getElementById(0).innerHTML != '') && (document.getElementById(1).innerHTML != '') && (document.getElementById(2).innerHTML != '') && (document.getElementById(3).innerHTML != '') && (document.getElementById(4).innerHTML != '') && (document.getElementById(5).innerHTML != '') && (document.getElementById(6).innerHTML != '') && (document.getElementById(7).innerHTML != '') && (document.getElementById(8).innerHTML != '')) {
+                this.tie = true
+                this.tieCount++
+                alert('Pareggio figli/e di puttana')
+            }
+
         },
 
         resetAllPage() {
             this.countClick = 0;
-            this.wins = false;
+            this.wins = '';
             console.log(this.countClick);
 
             for (let resetCard = 0; resetCard < 9; resetCard++) {
                 document.getElementById(resetCard).innerHTML = ""
             }
 
+            this.tie = false;
+
         },
+        resetTable() {
+            // this.results.push({tie: this.tieCount, resultX: this.counterX, resultO: this.counterO});
+            this.results.unshift({tie: this.tieCount, resultX: this.counterX, resultO: this.counterO});
+            console.log(this.results);
+            this.tieCount = 0;
+            this.counterX = 0;
+            this.counterO = 0;
+            this.tie = false;
+
+            
+        }
 
         // showWins() {
         //     document.getElementById('container-grande').innerHTML = `
@@ -221,21 +255,59 @@ export default {
             <table class="table table-striped table-hover text-center">
                 <thead>
                     <tr>
-                        <th scope="col" class=""><span class="fs-3"><i class="fa-solid fa-user"></i></span><span class="fs-6"><i class="fa-brands fa-x-twitter"></i></span></th>
-                        <th scope="col"><h3 class="mb-0"><i class="fa-brands fa-x"></i></h3></th>
-                        <th scope="col" class=""><span class="fs-3"><i class="fa-solid fa-user"></i></span><span class="fs-6"><i class="fa-brands fa-opera"></i></span></th>
-                        <th scope="col"><h1 class="mb-0"><i class="fa-solid fa-trophy"></i></h1></th>
+                        <th scope="col" class=""><span class="fs-3"><i class="fa-solid fa-user"></i></span><span
+                                class="fs-6"><i class="fa-brands fa-x-twitter"></i></span></th>
+                        <th scope="col">
+                            <h3 class="mb-0"><i class="fa-brands fa-x"></i></h3>
+                        </th>
+                        <th scope="col" class=""><span class="fs-3"><i class="fa-solid fa-user"></i></span><span
+                                class="fs-6"><i class="fa-brands fa-opera"></i></span></th>
+                        <th scope="col">
+                            <h1 class="mb-0"><i class="fa-solid fa-trophy"></i></h1>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Mark</td>
+                        <td>
+                            <div v-if="wins == 'x'">
+                                <span class="text-success" role="alert"> Win!</span>
+                            </div>
+                            <div v-else-if="wins == 'o'">
+                                <span class="text-danger" role="alert"> Loose!</span>
+                            </div>
+                            <div v-else></div>
+                        </td>
+                        <td>
+                            <div v-if="tie == true" class="text-warning ">
+                                <span class="text-warning" role="alert"> Tie!</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div v-if="wins == 'o'">
+                                <span class="text-succes" role="alert"> Win!</span>
+                            </div>
+                            <div v-else-if="wins == 'x'">
+                                <span class="text-danger" role="alert"> Loose!</span>
+                            </div>
+                            <div v-else></div>
+                        </td>
+                        <td>{{ counterX }} - {{ counterO }}</td>
+                    </tr>
+                    <tr v-for="item, index in results" :key="index">
+                        <td :class="item.resultX > 0 ? 'text-success' : ''">{{ item.resultX }}</td>
+                        <td :class="item.tie > 0 ? 'text-warning' : ''">{{ item.tie }}</td>
+                        <td :class="item.resultO > 0 ? 'text-success' : ''">{{ item.resultO }}</td>
+                        <td>
+                            <div v-if="item.resultO > item.resultX" class="text-success">O wins!</div>
+                            <div v-else-if="item.resultX > item.resultO" class="text-success">X wins!</div>
+                            <div v-else class="text-warning">Tie!</div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+            <button @click="resetAllPage(), resetTable()" type="button" class="btn btn-warning">NEW GAME</button>
+
         </div>
 
 
