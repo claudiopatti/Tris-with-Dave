@@ -245,19 +245,31 @@ export default {
         <div class="col-12">
             <h1 class="text-dark modak-regular text-center">Tris By <span class="modak-regular text-success">Claude</span> & <span class="modak-regular text-primary">Dave</span></h1>
         </div>
-        <div class="col-12 mb-5">
-                <button @click="resetAllPage()" class="btn btn-primary">
-                    RESET
-                </button>
-            </div>
+        
 
         <div class="griglia col-12  d-flex justify-content-center align-items-center flex-wrap me-lg-5">
             <div v-for="(items, index) in 9" :key="index" :id="index" @click=" press(index), checkWin(index)"
-                class="col-4 caselle d-flex justify-content-center align-items-center ">
+                class="col-4 p-0 caselle d-flex justify-content-center align-items-center ">
 
             </div>
         </div>
         <div class="col-12 col-lg-3 pt-3 d-flex flex-column justify-content-center align-items-center">
+
+            <div class="row w-100 ">
+                
+                <div class="col-6 col-lg-5 p-0 d-flex justify-content-center align-items-center mb-4 ">
+                    <button @click="resetAllPage()" class="btn btn-primary">
+                        RESET
+                    </button>
+                </div>
+                <div class="col-6 col-lg-7 p-0 d-flex justify-content-center align-items-center mb-4">
+                    <button @click="resetAllPage(), resetTable()" type="button" class="btn btn-success">
+                        NEW GAME
+                    </button>
+    
+                </div>
+            </div>
+            
             <table class="table table-hover text-center shadow ">
                 <thead>
                     <tr>
@@ -312,7 +324,6 @@ export default {
                     </tr>
                 </tbody>
             </table>
-            <button @click="resetAllPage(), resetTable()" type="button" class="btn btn-success">NEW GAME</button>
 
         </div>
 
@@ -326,18 +337,21 @@ export default {
     // width: 100vw;
 }
 .griglia {
+    // display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    // grid-template-rows: repeat(3, 1fr);
+    // gap: 10px;
     width: 80vw;
-    height: 80vw;
-    // height: fit-content;
-    // padding: 0.5rem;
-    // background-color: #5a0000cf;
+    height: 80vw; // Griglia sempre quadrata
+    max-width: 600px;
+    max-height: 600px;
     background-color: #222;
     box-shadow: #222 0 0 20px;
 
     .caselle {
         // width: calc((100% - 3rem) / 3);
         // margin: 0.5rem;
-        height: 100vw;
+        height: calc(100% / 3);
         background-color: rgb(0, 0, 0);
         border: 1px solid white;
         transition: 300ms;
@@ -350,5 +364,10 @@ export default {
 }
 .riga {
     height: 200px;
+}
+
+.table {
+    max-height: 100%;
+    overflow-y: auto;
 }
 </style>
