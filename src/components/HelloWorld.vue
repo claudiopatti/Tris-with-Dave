@@ -232,27 +232,33 @@ export default {
 
         // }
 
+    },
+    mounted() {
+        console.log('larghezza :', document.getElementsByClassName('griglia').style);
+        
     }
 };
 </script>
 
 <template>
-    <div id="container-grande" class="container h-100 d-flex justify-content-center align-items-center">
-
-        <div class="griglia col-8 a d-flex justify-content-center align-items-center flex-wrap gap-2 pt-3 me-5">
-            <div v-for="(items, index) in 9" :key="index" :id="index" @click=" press(index), checkWin(index)"
-                class="col-4 p-0 d-flex justify-content-center align-items-center ">
-
-            </div>
-
-            <div class="mt-5">
+    <div id="container-grande" class="container d-flex justify-content-center align-items-center flex-wrap p-5">
+        <div class="col-12">
+            <h1 class="text-dark modak-regular text-center">Tris By <span class="modak-regular text-success">Claude</span> & <span class="modak-regular text-primary">Dave</span></h1>
+        </div>
+        <div class="col-12 mb-5">
                 <button @click="resetAllPage()" class="btn btn-primary">
-                    Resetta
+                    RESET
                 </button>
             </div>
+
+        <div class="griglia col-12  d-flex justify-content-center align-items-center flex-wrap me-lg-5">
+            <div v-for="(items, index) in 9" :key="index" :id="index" @click=" press(index), checkWin(index)"
+                class="col-4 caselle d-flex justify-content-center align-items-center ">
+
+            </div>
         </div>
-        <div class="col-4 pt-3 d-flex flex-column justify-content-center align-items-center">
-            <table class="table table-striped table-hover text-center">
+        <div class="col-12 col-lg-3 pt-3 d-flex flex-column justify-content-center align-items-center">
+            <table class="table table-hover text-center shadow ">
                 <thead>
                     <tr>
                         <th scope="col" class=""><span class="fs-3"><i class="fa-solid fa-user"></i></span><span
@@ -306,7 +312,7 @@ export default {
                     </tr>
                 </tbody>
             </table>
-            <button @click="resetAllPage(), resetTable()" type="button" class="btn btn-warning">NEW GAME</button>
+            <button @click="resetAllPage(), resetTable()" type="button" class="btn btn-success">NEW GAME</button>
 
         </div>
 
@@ -315,26 +321,34 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.container{
+    height: 100%;
+    // width: 100vw;
+}
 .griglia {
-    width: 600px;
-    height: 600px;
-    background-color: #5a0000cf;
+    width: 80vw;
+    height: 80vw;
+    // height: fit-content;
+    // padding: 0.5rem;
+    // background-color: #5a0000cf;
+    background-color: #222;
+    box-shadow: #222 0 0 20px;
 
-    .col-4 {
-        width: 180px;
-        height: 180px;
+    .caselle {
+        // width: calc((100% - 3rem) / 3);
+        // margin: 0.5rem;
+        height: 100vw;
         background-color: rgb(0, 0, 0);
-        border: 1px solid black;
+        border: 1px solid white;
         transition: 300ms;
 
         &:active {
-            transform: rotate(360deg);
+            transform: rotate(360deg) scale(1.2);
+            box-shadow: white 0px 0px 10px;
         }
     }
 }
-
 .riga {
     height: 200px;
-
 }
 </style>
