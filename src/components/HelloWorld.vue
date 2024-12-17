@@ -12,6 +12,9 @@ export default {
             tieCount: 0,
             results: [],
             reverseResults: [],
+            resetCounter: 0,
+            bestOfTree: false,
+
         }
     },
     methods: {
@@ -37,9 +40,16 @@ export default {
                 console.log('hai vinto: X');
                 this.wins = 'x'
                 this.counterX++;
-                alert('Hai vinto figlio di puttana X');
-
-                // this.showWins()
+                this.resetCounter++;   
+                console.log(this.resetCounter);
+                
+                if (this.resetCounter == 3 && this.bestOfTree == true) {
+                    console.log('hai vinto: X');
+                    this.wins = 'x'
+                    alert('Hai avuto la meglio dei tre figlio di puttana X'); 
+                } else {
+                    alert('Hai vinto figlio di puttana X');
+                }
 
             }
             else if ((document.getElementById(3).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(5).innerHTML === this.iconX)) {
@@ -194,6 +204,12 @@ export default {
             }
 
             this.tie = false;
+            
+            if (this.resetCounter == 3 && this.bestOfTree == true) {
+                this.results.unshift({tie: this.tieCount, resultX: this.counterX, resultO: this.counterO});
+                console.log(this.results);
+                alert('vinto al meglio dei tre')
+            }
 
         },
         resetTable() {
@@ -206,8 +222,10 @@ export default {
             this.tie = false;
 
             
+        },
+        alMeglioDiTre() {
+            
         }
-
         // showWins() {
         //     document.getElementById('container-grande').innerHTML = `
         //         <div class="modal" tabindex="-1">
@@ -232,6 +250,7 @@ export default {
 
         // }
 
+
     },
     mounted() {
         console.log('larghezza :', document.getElementsByClassName('griglia').style);
@@ -241,6 +260,7 @@ export default {
 </script>
 
 <template>
+    <button  type="button" class="btn btn-success">Al meglio di 3</button>
     <div id="container-grande" class="container d-flex justify-content-center align-items-center flex-wrap p-5">
         <div class="col-12">
             <h1 class="text-dark modak-regular text-center">Tris By <span class="modak-regular text-success">Claude</span> & <span class="modak-regular text-primary">Dave</span></h1>
