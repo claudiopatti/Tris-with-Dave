@@ -59,9 +59,9 @@ export default {
                             <td :class="item.tie > 0 ? 'text-warning' : ''">{{ item.tie }}</td>
                             <td :class="item.resultO > 0 ? 'text-success' : ''">{{ item.resultO }}</td>
                             <td>
-                                <div v-if="item.resultO > item.resultX" class="text-success">O store.wins!</div>
-                                <div v-else-if="item.resultX > item.resultO" class="text-success">X store.wins!</div>
-                                <div v-else class="text-warning">store.tie!</div>
+                                <div v-if="item.resultO > item.resultX" class="text-success">O wins!</div>
+                                <div v-else-if="item.resultX > item.resultO" class="text-success">X wins!</div>
+                                <div v-else class="text-warning">tie!</div>
                             </td>
                         </tr>
                     </tbody>
