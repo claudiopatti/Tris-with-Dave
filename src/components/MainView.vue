@@ -2,17 +2,13 @@
 import store from '../data/store.js';
 import ModalView from '../pieces/ModalView.vue';
 import TableResults from '../pieces/TableResults.vue';
-import Grid from '../pieces/Grid.vue';
-import ButtonsResetAndNewgame from '../pieces/ButtonsResetAndNewgame.vue';
 
 export default {
     name: 'MainView',
     components : {
         ModalView,
-        TableResults,
-        Grid,
-        ButtonsResetAndNewgame
-    }, 
+        TableResults
+    },
     data() {
         return {
             store,
