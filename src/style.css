@@ -16,18 +16,4 @@
   font-style: normal;
 }
 
-.myModalCont{
-  width: 100vw;
-  height: 100vh;
-  background: #2222225e ;
-  z-index: 99999999;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.myModal{
-  width: 40%;
-  padding: 2rem;
-  background-color: white;
-}
+
