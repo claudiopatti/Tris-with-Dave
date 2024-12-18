@@ -3,7 +3,8 @@ import { reactive } from 'vue';
 
 const iMieiDati = reactive({
     // PROVA 2
-    bestOfTree: true,
+    bestOfTree: false,
+    normal: false,
     wins: '',
     counterX: 0,
     counterO: 0,
