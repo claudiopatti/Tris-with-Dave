@@ -9,3 +9,11 @@
 #app {
   height: 100vh;
 }
+
+.modak-regular {
+  font-family: "Modak", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
