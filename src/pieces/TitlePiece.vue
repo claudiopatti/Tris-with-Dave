@@ -37,16 +37,24 @@ export default {
 </script>
 <template>
     <div class="col-12 text-center pb-2">
-        <h1 class="text-dark modak-regular">Tris By <span class="modak-regular text-success">Claude</span> &
+        <h1 class="text-dark modak-regular"><span class="tris modak-regular text-warning">Tris</span> By <span class="modak-regular text-success">Claude</span> &
             <span class="modak-regular text-primary">Dave</span>
         </h1>
         <p v-if="store.bestOfTree == false && store.normal == false">
             Scegli una modalità di gioco
         </p>
-        <button @click="store.bestOfTree = true, store.modal = true, store.normal = false, resetAllPage(), resetTable()"
-            type="button" class="btn btn-success me-2">Al meglio di 3</button>
-        <button @click="store.normal = true, store.modal = true, store.bestOfTree = false, resetAllPage(), resetTable()"
-            type="button" class="btn btn-success">Play </button>
+        <div class="myCont d-flex justify-content-center gap-3 flex-wrap">
+            <button @click="store.bestOfTree = true, store.modal = true, store.normal = false, store.bestOfFive = false, resetAllPage(), resetTable()"
+                type="button" class="btn btn-success">Best Of 3</button>
+            <button @click="store.bestOfFive = true, store.modal = true, store.normal = false, store.bestOfTree = false, resetAllPage(), resetTable()"
+                type="button" class="btn btn-success">Best Of 5</button>
+            <button @click="store.normal = true, store.modal = true, store.bestOfTree = false, store.bestOfFive = false, resetAllPage(), resetTable()"
+                type="button" class="btn btn-success">Normal </button>
+
+        </div>
 
     </div>
 </template>
+<style lang="scss" scoped>
+// Your styles here
+</style>

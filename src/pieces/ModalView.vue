@@ -12,8 +12,16 @@ export default {
     methods: {
         // ... your methods here
         modalFilter() {
-            if (this.store.bestOfTree == true) {
+            if (this.store.bestOfTree == true ) {
                 if (this.store.counterO + this.store.counterX + this.store.tieCount == 3) {
+                    return false
+                }
+                else {
+                    return true
+                }
+            }
+            if (this.store.bestOfFive == true ) {
+                if (this.store.counterO + this.store.counterX + this.store.tieCount == 5) {
                     return false
                 }
                 else {
@@ -57,10 +65,11 @@ export default {
                     <div class="modal-header d-flex justify-content-end">
                         <i class="fa fa-close fs-3" aria-hidden="true" @click="store.modal = false, store.mosse = 0"></i>
                     </div>
-                    <div v-if="store.normal == true || store.bestOfTree == true"
+                    <div v-if="store.normal == true || store.bestOfTree == true || store.bestOfFive == true"
                         class="modal-body d-flex flex-column align-items-center">
-                        <h1 v-if="store.bestOfTree == true && store.wins == false" class="modak-regular">Hai cominciato una nuova partita al meglio dei 3!</h1>
-                        <h1 v-else-if="store.normal == true && store.wins == false" class="modak-regular">Hai cominciato una nuova partita!</h1>
+                        <h1 v-if="store.bestOfTree == true && store.wins == false && store.tie == false" class="modak-regular">Hai cominciato una nuova partita al meglio dei 3!</h1>
+                        <h1 v-if="store.bestOfFive == true && store.wins == false && store.tie == false" class="modak-regular">Hai cominciato una nuova partita al meglio dei 5!</h1>
+                        <h1 v-else-if="store.normal == true && store.wins == false && store.tie == false" class="modak-regular">Hai cominciato una nuova partita!</h1>
                     </div>
                     <div v-if="store.wins == 'x' && modalFilter() == true"
                         class="modal-body d-flex flex-column align-items-center">
@@ -70,7 +79,7 @@ export default {
                         </p>
                     </div>
                     <div v-else-if="store.wins == 'o' && modalFilter() == true"
-                        class="modal-body d-flex flex-column align-items-center">
+                        class="modal-body d-flex flex-column align-items-center"> 
                         <h1 class="modak-regular">Hai vinto MERDA <i class="fa-brands fa-opera"></i></h1>
                         <p>
                             Hai vinto con {{ store.mosse }} mosse.
@@ -84,18 +93,33 @@ export default {
                         </p> -->
                     </div>
 
-                    <div v-else-if="store.counterX > store.counterO && modalFilter() == false">
+                    <div v-else-if="store.counterX > store.counterO && modalFilter() == false && this.store.bestOfTree == true">
                         <h1 class="modak-regular"><i class="fa-brands fa-x-twitter"></i> Ha vinto la sfida al meglio di
                             tre</h1>
                         <p>Comincia una Nuova Partita.</p>
                     </div>
-                    <div v-else-if="store.counterX < store.counterO && modalFilter() == false">
+                    <div v-else-if="store.counterX < store.counterO && modalFilter() == false && this.store.bestOfTree == true">
                         <h1 class="modak-regular"><i class="fa-brands fa-opera"></i> Ha vinto la sfida al meglio di tre
                         </h1>
                         <p>Comincia una Nuova Partita.</p>
                     </div>
-                    <div v-else-if="store.counterX == store.counterO && modalFilter() == false">
+                    <div v-else-if="store.counterX == store.counterO && modalFilter() == false && this.store.bestOfTree == true">
                         <h1 class="modak-regular"> Hai Pareggiato la sfida al meglio delle 3.
+                        </h1>
+                        <p>Comincia una Nuova Partita.</p>
+                    </div>
+                    <div v-else-if="store.counterX > store.counterO && modalFilter() == false && this.store.bestOfFive == true">
+                        <h1 class="modak-regular"><i class="fa-brands fa-x-twitter"></i> Ha vinto la sfida al meglio di
+                            cinque</h1>
+                        <p>Comincia una Nuova Partita.</p>
+                    </div>
+                    <div v-else-if="store.counterX < store.counterO && modalFilter() == false && this.store.bestOfFive == true">
+                        <h1 class="modak-regular"><i class="fa-brands fa-opera"></i> Ha vinto la sfida al meglio di cinque
+                        </h1>
+                        <p>Comincia una Nuova Partita.</p>
+                    </div>
+                    <div v-else-if="store.counterX == store.counterO && modalFilter() == false && this.store.bestOfFive == true">
+                        <h1 class="modak-regular"> Hai Pareggiato la sfida al meglio delle 5.
                         </h1>
                         <p>Comincia una Nuova Partita.</p>
                     </div>
@@ -103,7 +127,7 @@ export default {
                         <button type="button" class="btn btn-outline-dark" @click="store.modal = false, store.mosse = 0">
                             Chiudi
                         </button>
-                        <button v-if="store.bestOfTree == true && modalFilter() == false" type="button"
+                        <button v-if=" modalFilter() == false" type="button"
                             class="btn btn-outline-success"
                             @click="resetAllPage(), resetTable()">
                             Nuova sfida

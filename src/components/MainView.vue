@@ -34,8 +34,8 @@ export default {
     <ModalView />
     <div id="container-grande" class="container d-flex justify-content-center align-items-center flex-wrap p-5">
         <titlePiece/>
-        <Grid v-if="store.bestOfTree == true || store.normal == true" />
-        <div v-if="store.bestOfTree == true || store.normal == true" class="col-12 col-lg-3 pt-3 d-flex flex-column justify-content-center align-items-center">
+        <Grid v-if="store.bestOfTree == true || store.normal == true || store.bestOfFive == true" />
+        <div v-if="store.bestOfTree == true || store.normal == true || store.bestOfFive == true" class="col-12 col-lg-3 pt-3 d-flex flex-column justify-content-center align-items-center">
             <ButtonsResetAndNewgame />
             <TableResults />
         </div>
