@@ -12,7 +12,7 @@ export default {
         TableResults,
         Grid,
         ButtonsResetAndNewgame
-    },
+    }, 
     data() {
         return {
             store,
