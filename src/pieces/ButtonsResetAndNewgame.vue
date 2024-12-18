@@ -19,15 +19,8 @@ export default {
 
             this.store.tie = false;
 
-            // if (this.store.resetCounter == 3 && this.store.bestOfTree == true) {
-            //     this.store.results.unshift({ store.tie: this.store.store.tieCount, resultX: this.store.counterX, resultO: this.store.counterO });
-            //     console.log(this.store.results);
-            //     alert('vinto al meglio dei tre')
-            // }
-
         },
         resetTable() {
-            // this.store.results.push({store.tie: this.store.store.tieCount, resultX: this.store.counterX, resultO: this.store.counterO});
             this.store.results.unshift({ tie: this.store.tieCount, resultX: this.store.counterX, resultO: this.store.counterO });
             console.log(this.store.results);
             this.store.tieCount = 0;
@@ -44,11 +37,11 @@ export default {
 
         <div class="col-6 col-lg-5 p-0 d-flex justify-content-center align-items-center mb-4 ">
             <button @click="resetAllPage()" class="btn btn-primary">
-                RESET
+                PLAY <i class="fa fa-play-circle" aria-hidden="true"></i>
             </button>
         </div>
 
-        <div class="col-6 col-lg-7 p-0 d-flex justify-content-center align-items-center mb-4">
+        <div v-if="store.bestOfTree == false" class="col-6 col-lg-7 p-0 d-flex justify-content-center align-items-center mb-4">
             <button @click="resetAllPage(), resetTable()" type="button" class="btn btn-success">
                 NEW GAME
             </button>

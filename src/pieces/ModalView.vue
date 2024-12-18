@@ -57,6 +57,11 @@ export default {
                     <div class="modal-header d-flex justify-content-end">
                         <i class="fa fa-close fs-3" aria-hidden="true" @click="store.modal = false, store.mosse = 0"></i>
                     </div>
+                    <div v-if="store.normal == true || store.bestOfTree == true"
+                        class="modal-body d-flex flex-column align-items-center">
+                        <h1 v-if="store.bestOfTree == true && store.wins == false" class="modak-regular">Hai cominciato una nuova partita al meglio dei 3!</h1>
+                        <h1 v-else-if="store.normal == true && store.wins == false" class="modak-regular">Hai cominciato una nuova partita!</h1>
+                    </div>
                     <div v-if="store.wins == 'x' && modalFilter() == true"
                         class="modal-body d-flex flex-column align-items-center">
                         <h1 class="modak-regular">Hai vinto MERDA <i class="fa-brands fa-x-twitter"></i></h1>
@@ -65,7 +70,7 @@ export default {
                         </p>
                     </div>
                     <div v-else-if="store.wins == 'o' && modalFilter() == true"
-                        class="modal-body d-flex flex-column align-items-center">">
+                        class="modal-body d-flex flex-column align-items-center">
                         <h1 class="modak-regular">Hai vinto MERDA <i class="fa-brands fa-opera"></i></h1>
                         <p>
                             Hai vinto con {{ store.mosse }} mosse.
