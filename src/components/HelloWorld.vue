@@ -4,6 +4,7 @@ export default {
         return {
             countClick: 0,
             wins: '',
+            modal: false,
             iconX: '<h1><i class="fa-brands fa-x-twitter text-light"></i></h1>',
             iconO: '<h1><i class="fa-brands fa-opera text-light"></i></h1>',
             counterX: 0,
@@ -13,7 +14,8 @@ export default {
             results: [],
             reverseResults: [],
             resetCounter: 0,
-            bestOfTree: false,
+            bestOfTree: true,
+            mosse: 0,
 
         }
     },
@@ -33,163 +35,196 @@ export default {
             }
             console.log(this.id)
         },
-
+        numeroMosse() {
+            if (this.countClick % 2 == 0) {
+                // return alert(this.countClick / 2)
+                this.mosse = this.countClick / 2;
+            }
+            else if (this.countClick % 2 != 0) {
+                // return alert(((this.countClick - 1) / 2) + 1)
+                this.mosse = ((this.countClick - 1) / 2) + 1;
+            }
+        },
         checkWin() {
             // let cards = document.getElementById(`${x}`)
-            if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(1).innerHTML === this.iconX) && (document.getElementById(2).innerHTML === this.iconX)) {
-                console.log('hai vinto: X');
-                this.wins = 'x'
-                this.counterX++;
-                this.resetCounter++;   
-                console.log(this.resetCounter);
-                
-                if (this.resetCounter == 3 && this.bestOfTree == true) {
+            if (this.wins == '') {
+                if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(1).innerHTML === this.iconX) && (document.getElementById(2).innerHTML === this.iconX)) {
                     console.log('hai vinto: X');
                     this.wins = 'x'
-                    alert('Hai avuto la meglio dei tre figlio di puttana X'); 
-                } else {
-                    alert('Hai vinto figlio di puttana X');
+                    this.counterX++;
+                    this.resetCounter++;
+                    // console.log(this.resetCounter);
+                    this.numeroMosse();
+                    this.modal = true;
+
+                    // if (this.resetCounter == 3 && this.bestOfTree == true) {
+                    //     console.log('hai vinto: X');
+                    //     this.wins = 'x'
+                    //     alert('Hai avuto la meglio dei tre figlio di puttana X');
+                    // } else {
+                    //     console.log('bellaaa');
+
+                    // alert('Hai vinto figlio di puttana X');
+                    // document.getElementById('container-grande').innerHTML = document.getElementById('container-grande').innerHTML + ' <div class="myModalCont"></div>'
+                    // }
+
+                }
+                else if ((document.getElementById(3).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(5).innerHTML === this.iconX)) {
+                    console.log('hai vinto: X')
+                    this.wins = 'x';
+                    this.counterX++;
+                    this.numeroMosse();
+                    this.modal = true;
+
+
+
+                }
+                else if ((document.getElementById(6).innerHTML === this.iconX) && (document.getElementById(7).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
+                    console.log('hai vinto: X')
+                    this.wins = 'x';
+                    this.counterX++;
+                    this.numeroMosse();
+                    this.modal = true;
+
+
+
+                }
+                else if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
+                    console.log('hai vinto: X')
+                    this.wins = 'x';
+                    this.counterX++;
+                    this.numeroMosse();
+                    this.modal = true;
+
+
+
+                }
+                else if ((document.getElementById(2).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(6).innerHTML === this.iconX)) {
+                    console.log('hai vinto: X')
+                    this.wins = 'x';
+                    this.counterX++;
+                    this.numeroMosse();
+                    this.modal = true;
+
+
+
+                }
+                else if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(3).innerHTML === this.iconX) && (document.getElementById(6).innerHTML === this.iconX)) {
+                    console.log('hai vinto: X')
+                    this.wins = 'x';
+                    this.counterX++;
+                    this.numeroMosse();
+                    this.modal = true;
+
+
+
+                }
+                else if ((document.getElementById(1).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(7).innerHTML === this.iconX)) {
+                    console.log('hai vinto: X')
+                    this.wins = 'x';
+                    this.counterX++;
+                    this.numeroMosse();
+                    this.modal = true;
+
+
+
+                }
+                else if ((document.getElementById(2).innerHTML === this.iconX) && (document.getElementById(5).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
+                    console.log('hai vinto: X')
+                    this.wins = 'x';
+                    this.counterX++;
+                    this.numeroMosse();
+                    this.modal = true;
+
+
+
                 }
 
-            }
-            else if ((document.getElementById(3).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(5).innerHTML === this.iconX)) {
-                console.log('hai vinto: X')
-                this.wins = 'x';
-                this.counterX++;
-                alert('Hai vinto figlio di puttana X');
+
+                //**********************************************+ */
+                else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(1).innerHTML === this.iconO) && (document.getElementById(2).innerHTML === this.iconO)) {
+                    console.log('hai vinto: O')
+                    this.wins = 'o';
+                    this.counterO++;
+                    this.numeroMosse();
+                    this.modal = true;
+
+
+                }
+                else if ((document.getElementById(3).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(5).innerHTML === this.iconO)) {
+                    console.log('hai vinto: O')
+                    this.wins = 'o';
+                    this.counterO++;
+                    this.numeroMosse();
+                    this.modal = true;
 
 
 
-            }
-            else if ((document.getElementById(6).innerHTML === this.iconX) && (document.getElementById(7).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
-                console.log('hai vinto: X')
-                this.wins = 'x';
-                this.counterX++;
-                alert('Hai vinto figlio di puttana X');
+                }
+                else if ((document.getElementById(6).innerHTML === this.iconO) && (document.getElementById(7).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
+                    console.log('hai vinto: O')
+                    this.wins = 'o';
+                    this.counterO++;
+                    this.numeroMosse();
+                    this.modal = true;
 
 
 
-            }
-            else if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
-                console.log('hai vinto: X')
-                this.wins = 'x';
-                this.counterX++;
-                alert('Hai vinto figlio di puttana X');
+                }
+                else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
+                    console.log('hai vinto: O')
+                    this.wins = 'o';
+                    this.counterO++;
+                    this.numeroMosse();
+                    this.modal = true;
 
 
 
-            }
-            else if ((document.getElementById(2).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(6).innerHTML === this.iconX)) {
-                console.log('hai vinto: X')
-                this.wins = 'x';
-                this.counterX++;
-                alert('Hai vinto figlio di puttana X');
+                }
+                else if ((document.getElementById(2).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(6).innerHTML === this.iconO)) {
+                    console.log('hai vinto: O')
+                    this.wins = 'o';
+                    this.counterO++;
+                    this.numeroMosse();
+                    this.modal = true;
 
 
 
-            }
-            else if ((document.getElementById(0).innerHTML === this.iconX) && (document.getElementById(3).innerHTML === this.iconX) && (document.getElementById(6).innerHTML === this.iconX)) {
-                console.log('hai vinto: X')
-                this.wins = 'x';
-                this.counterX++;
-                alert('Hai vinto figlio di puttana X');
+                }
+                else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(3).innerHTML === this.iconO) && (document.getElementById(6).innerHTML === this.iconO)) {
+                    console.log('hai vinto: O')
+                    this.wins = 'o';
+                    this.counterO++;
+                    this.numeroMosse();
+                    this.modal = true;
 
 
 
-            }
-            else if ((document.getElementById(1).innerHTML === this.iconX) && (document.getElementById(4).innerHTML === this.iconX) && (document.getElementById(7).innerHTML === this.iconX)) {
-                console.log('hai vinto: X')
-                this.wins = 'x';
-                this.counterX++;
-                alert('Hai vinto figlio di puttana X');
+                }
+                else if ((document.getElementById(1).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(7).innerHTML === this.iconO)) {
+                    console.log('hai vinto: O')
+                    this.wins = 'o';
+                    this.counterO++;
+                    this.numeroMosse();
+                    this.modal = true;
 
 
 
-            }
-            else if ((document.getElementById(2).innerHTML === this.iconX) && (document.getElementById(5).innerHTML === this.iconX) && (document.getElementById(8).innerHTML === this.iconX)) {
-                console.log('hai vinto: X')
-                this.wins = 'x';
-                this.counterX++;
-                alert('Hai vinto figlio di puttana X');
+                }
+                else if ((document.getElementById(2).innerHTML === this.iconO) && (document.getElementById(5).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
+                    console.log('hai vinto: O')
+                    this.wins = 'o';
+                    this.counterO++;
+                    this.numeroMosse();
+                    this.modal = true;
+                }
+                else if ((document.getElementById(0).innerHTML != '') && (document.getElementById(1).innerHTML != '') && (document.getElementById(2).innerHTML != '') && (document.getElementById(3).innerHTML != '') && (document.getElementById(4).innerHTML != '') && (document.getElementById(5).innerHTML != '') && (document.getElementById(6).innerHTML != '') && (document.getElementById(7).innerHTML != '') && (document.getElementById(8).innerHTML != '')) {
+                    this.tie = true
+                    this.tieCount++
+                    this.numeroMosse();
+                    this.modal = true;
+                }
 
-
-
-            }
-
-
-            //**********************************************+ */
-            else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(1).innerHTML === this.iconO) && (document.getElementById(2).innerHTML === this.iconO)) {
-                console.log('hai vinto: O')
-                this.wins = 'o';
-                this.counterO++;
-                alert('Hai vinto figlio di puttana O');
-
-
-            }
-            else if ((document.getElementById(3).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(5).innerHTML === this.iconO)) {
-                console.log('hai vinto: O')
-                this.wins = 'o';
-                this.counterO++;
-                alert('Hai vinto figlio di puttana O');
-
-
-
-            }
-            else if ((document.getElementById(6).innerHTML === this.iconO) && (document.getElementById(7).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
-                console.log('hai vinto: O')
-                this.wins = 'o';
-                this.counterO++;
-                alert('Hai vinto figlio di puttana O');
-
-
-
-            }
-            else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
-                console.log('hai vinto: O')
-                this.wins = 'o';
-                this.counterO++;
-                alert('Hai vinto figlio di puttana O');
-
-
-
-            }
-            else if ((document.getElementById(2).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(6).innerHTML === this.iconO)) {
-                console.log('hai vinto: O')
-                this.wins = 'o';
-                this.counterO++;
-                alert('Hai vinto figlio di puttana O');
-
-
-
-            }
-            else if ((document.getElementById(0).innerHTML === this.iconO) && (document.getElementById(3).innerHTML === this.iconO) && (document.getElementById(6).innerHTML === this.iconO)) {
-                console.log('hai vinto: O')
-                this.wins = 'o';
-                this.counterO++;
-                alert('Hai vinto figlio di puttana O');
-
-
-
-            }
-            else if ((document.getElementById(1).innerHTML === this.iconO) && (document.getElementById(4).innerHTML === this.iconO) && (document.getElementById(7).innerHTML === this.iconO)) {
-                console.log('hai vinto: O')
-                this.wins = 'o';
-                this.counterO++;
-                alert('Hai vinto figlio di puttana O');
-
-
-
-            }
-            else if ((document.getElementById(2).innerHTML === this.iconO) && (document.getElementById(5).innerHTML === this.iconO) && (document.getElementById(8).innerHTML === this.iconO)) {
-                console.log('hai vinto: O')
-                this.wins = 'o';
-                this.counterO++;
-                alert('Hai vinto figlio di puttana O');
-            }
-            else if ((document.getElementById(0).innerHTML != '') && (document.getElementById(1).innerHTML != '') && (document.getElementById(2).innerHTML != '') && (document.getElementById(3).innerHTML != '') && (document.getElementById(4).innerHTML != '') && (document.getElementById(5).innerHTML != '') && (document.getElementById(6).innerHTML != '') && (document.getElementById(7).innerHTML != '') && (document.getElementById(8).innerHTML != '')) {
-                this.tie = true
-                this.tieCount++
-                alert('Pareggio figli/e di puttana')
             }
 
         },
@@ -204,68 +239,113 @@ export default {
             }
 
             this.tie = false;
-            
-            if (this.resetCounter == 3 && this.bestOfTree == true) {
-                this.results.unshift({tie: this.tieCount, resultX: this.counterX, resultO: this.counterO});
-                console.log(this.results);
-                alert('vinto al meglio dei tre')
-            }
+
+            // if (this.resetCounter == 3 && this.bestOfTree == true) {
+            //     this.results.unshift({ tie: this.tieCount, resultX: this.counterX, resultO: this.counterO });
+            //     console.log(this.results);
+            //     alert('vinto al meglio dei tre')
+            // }
 
         },
         resetTable() {
             // this.results.push({tie: this.tieCount, resultX: this.counterX, resultO: this.counterO});
-            this.results.unshift({tie: this.tieCount, resultX: this.counterX, resultO: this.counterO});
+            this.results.unshift({ tie: this.tieCount, resultX: this.counterX, resultO: this.counterO });
             console.log(this.results);
             this.tieCount = 0;
             this.counterX = 0;
             this.counterO = 0;
             this.tie = false;
-
-            
         },
-        alMeglioDiTre() {
-            
+        modalFilter() {
+            if (this.bestOfTree == true) {
+                if (this.counterO + this.counterX + this.tieCount == 3) {
+                    return false
+                }
+                else {
+                    return true
+                }
+            }
+            else {
+                return true
+            }
         }
-        // showWins() {
-        //     document.getElementById('container-grande').innerHTML = `
-        //         <div class="modal" tabindex="-1">
-        //             <div class="modal-dialog">
-        //                 <div class="modal-content">
-        //                     <div class="modal-header">
-        //                         <h5 class="modal-title">Modal title</h5>
-        //                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        //                     </div>
-        //                     <div class="modal-body">
-        //                         <p>Modal body text goes here.</p>
-        //                     </div>
-        //                     <div class="modal-footer">
-        //                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        //                         <button type="button" class="btn btn-primary">Save changes</button>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </div>
-
-        //     `
-
-        // }
 
 
     },
     mounted() {
-        console.log('larghezza :', document.getElementsByClassName('griglia').style);
-        
     }
 };
 </script>
 
 <template>
-    <button  type="button" class="btn btn-success">Al meglio di 3</button>
+    <!-- <button  type="button" class="btn btn-success">Al meglio di 3</button> -->
     <div id="container-grande" class="container d-flex justify-content-center align-items-center flex-wrap p-5">
-        <div class="col-12">
-            <h1 class="text-dark modak-regular text-center">Tris By <span class="modak-regular text-success">Claude</span> & <span class="modak-regular text-primary">Dave</span></h1>
+        <div v-if="modal == true" class="myModalCont">
+            <div class="myModalCont">
+                <div class="myModal">
+                    <div class="modal-header d-flex justify-content-end">
+                        <i class="fa fa-close fs-3" aria-hidden="true" @click="modal = false, mosse = 0"></i>
+                    </div>
+                    <div v-if="wins == 'x' && modalFilter() == true"
+                        class="modal-body d-flex flex-column align-items-center">
+                        <h1 class="modak-regular">Hai vinto MERDA <i class="fa-brands fa-x-twitter"></i></h1>
+                        <p>
+                            Hai vinto con {{ mosse }} mosse.
+                        </p>
+                    </div>
+                    <div v-else-if="wins == 'o' && modalFilter() == true"
+                        class="modal-body d-flex flex-column align-items-center">">
+                        <h1 class="modak-regular">Hai vinto MERDA <i class="fa-brands fa-opera"></i></h1>
+                        <p>
+                            Hai vinto con {{ mosse }} mosse.
+                        </p>
+                    </div>
+                    <div v-else-if="tie == true && modalFilter() == true"
+                        class="modal-body d-flex flex-column align-items-center">
+                        <h1 class="modak-regular">Pareggio MERDA</h1>
+                        <!-- <p>
+                            Hai vinto con {{ mosse }} mosse.
+                        </p> -->
+                    </div>
+
+                    <div v-else-if="wins == 'x' && modalFilter() == false">
+                        <h1 class="modak-regular"><i class="fa-brands fa-x-twitter"></i> Ha vinto la sfida al meglio di
+                            tre</h1>
+                        <p>Comincia una Nuova Partita o continua la seguente.</p>
+                    </div>
+                    <div v-else-if="wins == 'o' && modalFilter() == false">
+                        <h1 class="modak-regular"><i class="fa-brands fa-opera"></i> Ha vinto la sfida al meglio di tre
+                        </h1>
+                        <p>Comincia una Nuova Partita o continua la seguente.</p>
+                    </div>
+                    <div v-else-if="tie == true && modalFilter() == false">
+                        <h1 class="modak-regular"><i class="fa-brands fa-opera"></i> Hai Pareggiato la sfida al meglio delle 3.
+                        </h1>
+                        <p>Comincia una Nuova Partita o continua la seguente.</p>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-outline-dark" @click="modal = false, mosse = 0">
+                            Chiudi
+                        </button>
+                        <button v-if="bestOfTree == true && (counterO + counterX + tieCount) == 3" type="button"
+                            class="btn btn-outline-success"
+                            @click="resetAllPage(), resetTable(), modal = false, mosse = 0">
+                            Nuova sfida
+                        </button>
+                        <button @click="resetAllPage(), modal = false, mosse = 0" class="btn btn-outline-primary">
+                            Gioca
+                        </button>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        
+        <div class="col-12">
+            <h1 class="text-dark modak-regular text-center">Tris By <span
+                    class="modak-regular text-success">Claude</span> & <span
+                    class="modak-regular text-primary">Dave</span></h1>
+        </div>
+
 
         <div class="griglia col-12  d-flex justify-content-center align-items-center flex-wrap me-lg-5">
             <div v-for="(items, index) in 9" :key="index" :id="index" @click=" press(index), checkWin(index)"
@@ -276,7 +356,7 @@ export default {
         <div class="col-12 col-lg-3 pt-3 d-flex flex-column justify-content-center align-items-center">
 
             <div class="row w-100 ">
-                
+
                 <div class="col-6 col-lg-5 p-0 d-flex justify-content-center align-items-center mb-4 ">
                     <button @click="resetAllPage()" class="btn btn-primary">
                         RESET
@@ -286,7 +366,7 @@ export default {
                     <button @click="resetAllPage(), resetTable()" type="button" class="btn btn-success">
                         NEW GAME
                     </button>
-    
+
                 </div>
             </div>
 
@@ -347,19 +427,19 @@ export default {
                 </table>
 
             </div>
-            
+
 
         </div>
-
-
     </div>
 </template>
 
 <style lang="scss" scoped>
-.container{
+.container {
     height: 100%;
+    position: relative;
     // width: 100vw;
 }
+
 .griglia {
     // display: grid;
     // grid-template-columns: repeat(3, 1fr);
@@ -386,6 +466,7 @@ export default {
         }
     }
 }
+
 .riga {
     height: 200px;
 }
@@ -400,9 +481,11 @@ export default {
 }
 
 thead th {
-  position: sticky; /* Mantiene l'intestazione visibile durante lo scroll */
-  top: 0;
-  background-color: #f8f9fa; /* Sfondo dell'intestazione */
-  z-index: 1;
+    position: sticky;
+    /* Mantiene l'intestazione visibile durante lo scroll */
+    top: 0;
+    background-color: #f8f9fa;
+    /* Sfondo dell'intestazione */
+    z-index: 1;
 }
 </style>
